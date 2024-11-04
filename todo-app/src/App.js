@@ -1,6 +1,6 @@
 import Title from "./title";
 import Category from "./categories";
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import Entry from "./entry";
 
 
