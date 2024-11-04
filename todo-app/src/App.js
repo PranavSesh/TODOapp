@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Title from "./title";
+import Category from "./categories";
+import {useEffect, useState} from "react";
+import Entry from "./entry";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [todos, setTodos] = useState([]);
+    const categories = ["Urgent", "Daily", "Long-Term"]
+
+    return <div className="App">
+        <div className="container">
+          <Title />
+            {categories.map((category) => <Category categoryName={category}
+                                                     key={category}
+                                                     setTodos={setTodos}
+                                                     todos={todos} />)}
+          <Entry categories={categories} todos={todos} setTodos={setTodos} />
+        </div>
+    </div>;
 }
 
 export default App;
