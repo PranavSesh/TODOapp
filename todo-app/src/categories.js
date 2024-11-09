@@ -5,8 +5,10 @@ function Category({ category, todos, setTodos, addTask }) {
     const [editedText, setEditedText] = useState("");
 
     function toggleCategory(category) {
-        const element = document.getElementById(category);
-        element.style.display = element.style.display === "block" ? "none" : "block";
+        const categorySection = document.getElementById(category);
+        categorySection.style.display = categorySection.style.display === "flex" ? "none" : "flex";
+        const toggleCategoryButton = document.getElementById("toggleButtonText" + category);
+        toggleCategoryButton.innerText = toggleCategoryButton.innerText === "<" ? "=" : "<";
     }
 
     function removeTask(taskFilter) {
@@ -14,6 +16,7 @@ function Category({ category, todos, setTodos, addTask }) {
             ...todos,
             [category]: todos[category].filter((task) => task !== taskFilter),
         }));
+        setCurrentEditingTask(null);
     }
 
     function toggleEdit(index, task, isCancel = false) {
@@ -33,20 +36,25 @@ function Category({ category, todos, setTodos, addTask }) {
     function updateTask(index, category, originalTask) {
         if (editedText.trim() && editedText !== originalTask) {
             removeTask(originalTask);
-            addTask(editedText, category, true);
+            const index = todos[category].indexOf(originalTask)
+            addTask(editedText, category, true, index);
         }
         setCurrentEditingTask(null);
     }
 
     return (
         <div className="categorySection">
-            <>{category}</>
-            <button
-                className="toggleCategory"
-                onClick={() => toggleCategory(category)}
-            >
-                Toggle {category}
-            </button>
+            <div>
+                <h3 id={"catHeader"}>{category}</h3>
+                <button
+                    className="toggleCategory"
+                    onClick={() => toggleCategory(category)}
+                >
+                    <label id={"toggleButtonText" + category}>{"<"}</label>
+                </button>
+            </div>
+
+            <div className={"categorySeparator"}></div>
             <div id={category} className={"todoList"}>
                 {todos[category].map((task, i) => {
                     const taskId = `${i}-${category}`;
@@ -64,29 +72,31 @@ function Category({ category, todos, setTodos, addTask }) {
                                 <textarea readOnly={true} className="taskDisplayField" value={task} />
                             )}
                             {isEditing ? (
-                                <>
+                                <div>
                                     <button
                                         className="confirmButton"
                                         onClick={() => updateTask(i, category, task)}
-                                    > Confirm </button>
+                                    > Confirm
+                                    </button>
                                     <button
                                         className="cancelButton"
                                         onClick={() => toggleEdit(i, task, true)}
-                                    > Cancel </button>
-                                </>
+                                    > Cancel
+                                    </button>
+                                </div>
                             ) : (
-                                <>
+                                <div>
                                     <button
                                         className="removeTaskButton"
                                         onClick={() => removeTask(task)}
-                                    > Remove
+                                    > Done
                                     </button>
                                     <button
                                         className="editButton"
                                         onClick={() => toggleEdit(i, task)}
                                     > Edit
                                     </button>
-                                </>
+                                </div>
                             )}
                         </div>
                     );

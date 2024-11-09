@@ -14,6 +14,7 @@ code {
 }
 
 .App {
+  font-family: monospace;
 }
 
 .container {
@@ -24,18 +25,23 @@ code {
 }
 
 #titleSeparator {
-  width: 700px;
+  width: 70vw;
+  max-width: 650px;
   height: 2px;
   margin: 30px auto;
-  background-color: #d33f3f;
+  background-color: gray;
 }
 
 .Header {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
   display: flex;
   flex-direction: column;
   align-content: center;
   text-align: center;
-  margin-top: 20px;
+  margin: 40px;
 }
 
 #Urgent, #Daily, #Long-Term {
@@ -43,14 +49,20 @@ code {
 }
 
 .task {
-  color: black;
-  border: 1px solid red;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #4c5073;
+  margin: 3px;
 }
 
 .categorySection {
-  border: blue solid 1px;
-  background-color: green;
-  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  color: #e1dddd;
+  background-color: transparent;
+  width: 60vw;
+  max-width: 550px;
+  margin-bottom: 20px;
 }
 
 .toggleCategory {
@@ -59,7 +71,10 @@ code {
 
 .removeTaskButton {
   float: right;
-  background-color: aqua;
+  background-color: #7fabca;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: none;
 }
 
 img {
@@ -69,10 +84,15 @@ img {
 
 .editButton {
   float: right;
-  background-color: #d33f3f;
+  background-color: #b56464;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: none;
 }
 
 .taskEditField {
+  color: white;
+  float: left;
   resize: vertical;
   font-size: 15px;
   background-color: transparent;
@@ -81,27 +101,91 @@ img {
 }
 
 .taskDisplayField {
+  color: white;
+  float: left;
+  resize: vertical;
   border: none;
   width: 70%;
   height: 20%;
   background-color: transparent;
   font-size: 15px;
 }
+ .confirmButton {
+   background-color: #69d33f;
+   float: right;
+   border: none;
+   border-radius: 4px;
+ }
 
-.confirmButton {
-  background-color: #69d33f;
-  float: right;
-}
 
 .cancelButton {
-  background-color: #28517e;
+  background-color: #7fabca;
   float: right;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
 }
 
 .todoList {
   display: flex;
   flex-direction: column;
 }
+
+#catHeader {
+  float: left;
+  font-size: 20px;
+  margin: 5px;
+}
+
+#categoryInput {
+  color: white;
+  background-color: gray;
+  height: 26px;
+  border-radius: 3px;
+}
+
+#taskInput {
+  font-size: 16px;
+  color: white;
+  background-color: #4c5073;
+  height: 23px;
+  border: none;
+  margin: 0 14px;
+  padding: 10px;
+  resize: vertical;
+  width: 30vw;
+  overflow-y: hidden;
+}
+
+
+#taskInput::placeholder {
+  color: white;
+}
+
+#addTaskButton {
+  color: white;
+  background-color: gray;
+  height: 25px;
+  border: none;
+  border-radius: 3px;
+}
+
+.categorySeparator {
+  height: 2px;
+  background-color: gray;
+  margin: 3px;
+}
+
+.entryFields {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+
+
+
 
 
 
