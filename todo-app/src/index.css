@@ -75,6 +75,7 @@ code {
   margin-right: 10px;
   border-radius: 4px;
   border: none;
+  cursor: pointer;
 }
 
 img {
@@ -87,6 +88,7 @@ img {
   background-color: #b56464;
   margin-right: 10px;
   border-radius: 4px;
+  cursor: pointer;
   border: none;
 }
 
@@ -110,12 +112,14 @@ img {
   background-color: transparent;
   font-size: 15px;
 }
- .confirmButton {
-   background-color: #69d33f;
-   float: right;
-   border: none;
-   border-radius: 4px;
- }
+
+.confirmButton {
+ background-color: #69d33f;
+ float: right;
+ border: none;
+ cursor: pointer;
+ border-radius: 4px;
+}
 
 
 .cancelButton {
@@ -123,6 +127,7 @@ img {
   float: right;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
   margin-right: 10px;
 }
 
@@ -142,6 +147,7 @@ img {
   background-color: gray;
   height: 26px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 #taskInput {
@@ -154,6 +160,7 @@ img {
   padding: 10px;
   resize: vertical;
   width: 30vw;
+  cursor: pointer;
   overflow-y: hidden;
 }
 
@@ -168,6 +175,7 @@ img {
   height: 25px;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .categorySeparator {
@@ -179,7 +187,7 @@ img {
 .entryFields {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: space-evenly;
 }
 
